@@ -6,11 +6,11 @@ const request = supertest(app);
 describe("Test endpoint responses", () => {
   it("gets the api endpoint expected fail when no queries at all", async () => {
     const response = await request.get("/api/images");
-    expect(response.status).toBe(301);
+    expect(response.status).toBe(401);
   });
   it("gets the api endpoint expected fail when some queries are added", async () => {
     const response = await request.get("/api/images?filename=test&width=200");
-    expect(response.status).toBe(301);
+    expect(response.status).toBe(401);
   });
   it("gets the api endpoint expected fail for can find image", async () => {
     const response = await request.get(
