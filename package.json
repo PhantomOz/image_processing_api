@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx tsc",
     "jasmine": "jasmine",
-    "test": "npm run build && npm run jasmine"
+    "test": "npm run build && npm run jasmine",
+    "start": "nodemon src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@types/jasmine": "^4.3.1",
     "@types/supertest": "^2.0.12",
+    "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   },
