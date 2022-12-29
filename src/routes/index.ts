@@ -14,20 +14,21 @@ router.get("/?", logger, (req, res) => {
 
   //Initiate Image Transformation
   let createFile: Promise<transformResult> = transform(
-    filename,
+    String(filename),
     Number(width),
     Number(height)
   );
-  createFile.then((result) => {
-    const path = result.message;
+  createFile
+    .then((result) => {
+      //get the image path from result
+      const path = result.message;
 
-    //Server the Transformed Image to the browser
-    result.code === "succeeded" && displayImage(path, res);
-
-    //Serves a badrequest when the file cannot be found
-    result.code === "ENOENT" &&
-      res.status(404).send(`<h1>Can't Locate the image ${filename}.jpg </h1>`);
-  }); //capture the path of the processed image
+      //Server the Transformed Image to the browser
+      displayImage(path, res);
+    }) //capture the path of the processed image
+    .catch(() =>
+      res.status(404).send(`<h1>Can't Locate the image ${filename}.jpg </h1>`)
+    ); //Gives out error 404 when the file cannot be found in the full directory
 });
 
 // export router

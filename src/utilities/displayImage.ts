@@ -1,6 +1,7 @@
+import { Response } from "express";
 import fs from "fs";
 
-const displayImage = async (path: string, res: any) => {
+const displayImage = async (path: string, res: Response) => {
   await fs.readFile(path, (err, data) => {
     if (err) {
       res.status(200).send("<script>window.location.reload()</script>");

@@ -1,4 +1,6 @@
-const logger = (req: any, res: any, next: any): void => {
+import { Request, Response, NextFunction } from "express";
+
+const logger = (req: Request, res: Response, next: NextFunction): void => {
   const { filename, width, height } = req.query;
   filename && width && height
     ? next()
