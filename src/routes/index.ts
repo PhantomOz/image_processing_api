@@ -13,7 +13,7 @@ router.get("/?", logger, (req, res) => {
   const { filename, width, height } = req.query;
 
   //Initiate Image Transformation
-  let createFile: Promise<transformResult> = transform(
+  const createFile: Promise<transformResult> = transform(
     String(filename),
     Number(width),
     Number(height)
