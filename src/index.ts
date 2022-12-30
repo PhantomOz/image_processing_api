@@ -1,11 +1,11 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import apiRoute from './routes/index';
 const app = express();
 
 // Adding some middleware
 app.use('/api/images', apiRoute);
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('Hello, Welcome');
 });
 // listening on port 3000

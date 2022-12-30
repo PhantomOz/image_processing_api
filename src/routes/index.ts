@@ -1,14 +1,14 @@
-import { Router } from "express";
-import logger from "../utilities/logger";
-import transform from "../utilities/transform";
-import { transformResult } from "../utilities/interfaces";
-import displayImage from "../utilities/displayImage";
+import { Request, Response, Router } from 'express';
+import logger from '../utilities/logger';
+import transform from '../utilities/transform';
+import { transformResult } from '../utilities/interfaces';
+import displayImage from '../utilities/displayImage';
 
 // initialize router
 const router = Router();
 
 //create get route
-router.get("/?", logger, (req, res) => {
+router.get('/?', logger, (req: Request, res: Response) => {
   // getting filename, width, and height from query string
   const { filename, width, height } = req.query;
 
